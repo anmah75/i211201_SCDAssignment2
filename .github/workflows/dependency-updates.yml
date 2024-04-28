@@ -16,12 +16,7 @@ jobs:
 
     steps:
 
-      - name: Navigate to dependencies directory
-        run: |
-          cd ..
-          ls -la  # List all files including hidden ones for debugging
-          cd ./i211201_SCDAssignment2
-          ls -la  # List all files including hidden ones for debugging
+
           
       - name: Checkout code
         uses: actions/checkout@v2
@@ -36,8 +31,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-     # - name: Run dependency updates
-     #   uses: dependabot/dependabot-core@main
-     #   with:
-     #     github-token: ${{ secrets.GITHUB_TOKEN }}
-     #     directory: './package.json' 
+      
+
+      - name: Run dependency updates
+        uses: dependabot/dependabot-core@0.158.0
+        with:
+          github-token: ${{ secrets.GH_PAT }}
+          directory: '/' 

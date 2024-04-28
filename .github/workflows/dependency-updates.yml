@@ -3,12 +3,6 @@ name: Dependency Updates
 on:
   schedule:
     - cron: '0 0 * * *' 
-  push:
-    branches:
-      - main
-    paths-ignore:      # Ignore changes to below files
-      - 'README.md' 
-      - 'LICENSE'   
 
 jobs:
   update-dependencies:
@@ -38,4 +32,4 @@ jobs:
         uses: dependabot/dependabot-core@0.158.0
         with:
           github-token: ${{ secrets.GH_PAT }}
-          directory: '/' 
+          directory: "/" 

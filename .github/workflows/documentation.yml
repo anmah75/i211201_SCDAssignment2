@@ -23,19 +23,19 @@ jobs:
           echo "List files in current directory:"
           ls -l
       
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Set up node
+        uses: actions/setup-node@v2
         with:
-          python-version: '3.12'
+          node-version: '16'
       
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: npm install
       
       - name: Build Documentation
         run: |
-             pip install sphinx
+             npm install -g jsdocs
              cd src
-             sphinx-build -b html . ../
+             jsdoc ./*.js -d ./
 
 
       - name: Deploy Documentation

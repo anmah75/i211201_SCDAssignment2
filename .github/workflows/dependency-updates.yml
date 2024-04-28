@@ -31,7 +31,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      
+      - name: Check for Dependencies
+        run: npm outdated --json
 
       - name: Run dependency updates
         uses: dependabot/dependabot-core@0.158.0

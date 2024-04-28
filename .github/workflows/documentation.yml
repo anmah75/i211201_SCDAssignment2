@@ -33,7 +33,7 @@ jobs:
       
       - name: Build Documentation
         run: |
-             npm install -g jsdocs
+             npm install -g jsdoc
              cd src
              jsdoc ./*.js -d ./
 

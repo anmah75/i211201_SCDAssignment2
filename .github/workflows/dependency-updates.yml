@@ -17,7 +17,9 @@ jobs:
     steps:
 
       - name: Navigate to dependencies directory
-        run: ls
+        run: |
+            cd ./i211201_SCDAssignment2
+            ls
           
       - name: Checkout code
         uses: actions/checkout@v2

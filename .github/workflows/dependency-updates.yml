@@ -18,6 +18,8 @@ jobs:
 
       - name: Navigate to dependencies directory
         run: |
+            cd ..
+            ls
             cd ./i211201_SCDAssignment2
             ls
           

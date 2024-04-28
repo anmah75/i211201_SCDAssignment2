@@ -15,6 +15,13 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+
+        
+      - name: Debug Information
+        run: |
+          echo "Current directory: $PWD"
+          echo "List files in current directory:"
+          ls -l
       
       - name: Set up Python
         uses: actions/setup-python@v2

@@ -17,9 +17,8 @@ jobs:
     steps:
 
       - name: Navigate to dependencies directory
-        run: |
-          cd ..
-          ls
+        run: ls
+          
       - name: Checkout code
         uses: actions/checkout@v2
 

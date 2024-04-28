@@ -1,0 +1,31 @@
+name: Generating release notes (Custom workflow)
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  generate_release_notes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  
+
+      - name: Install dependencies
+        run: npm install  
+
+      - name: Permissions for script to execute
+        run: chmod +x generateNotes.sh  
+
+      - name: Generate release notes
+        run: |
+          echo "Generating the notes"
+          ./generateNotes.sh > releaseNotes.txt
+
+      - name: Upload release notes
+        uses: actions/upload-artifact@v2
+        with:
+          name: releasenotes
+          path: releaseNotes.txt

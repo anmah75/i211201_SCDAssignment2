@@ -30,7 +30,7 @@ jobs:
         run: npm install
 
       - name: Run dependency updates
-        uses: dependabot/dependabot-core@master
+        uses: dependabot/dependabot-core@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           directory: './package.json' 

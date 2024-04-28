@@ -1,0 +1,19 @@
+name: Weekly Maintenance
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Runs every Sunday at midnight 
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run maintenance script
+        run: |
+          echo "Running maintenance tasks"
+          chmod +x scriptForMaintainance.sh
+          ./scriptForMaintainance.sh

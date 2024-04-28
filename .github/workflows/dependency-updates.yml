@@ -19,7 +19,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Navigate to dependencies directory
-        run: cd ..
+        run: |
+          cd ..
+          ls
 
       - name: Setup Node.js
         uses: actions/setup-node@v2

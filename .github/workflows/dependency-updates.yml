@@ -1,0 +1,36 @@
+name: Dependency Updates
+
+on:
+  schedule:
+    - cron: '0 0 * * *' 
+  push:
+    branches:
+      - main
+    paths-ignore:      # Ignore changes to below files
+      - 'README.md' 
+      - 'LICENSE'   
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Navigate to dependencies directory
+        run: cd ..
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run dependency updates
+        uses: dependabot/dependabot-core@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          directory: './packages.json' 

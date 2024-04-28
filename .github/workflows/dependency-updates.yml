@@ -18,10 +18,10 @@ jobs:
 
       - name: Navigate to dependencies directory
         run: |
-            cd ..
-            ls
-            cd ./i211201_SCDAssignment2
-            ls
+          cd ..
+          ls -la  # List all files including hidden ones for debugging
+          cd ./i211201_SCDAssignment2
+          ls -la  # List all files including hidden ones for debugging
           
       - name: Checkout code
         uses: actions/checkout@v2
